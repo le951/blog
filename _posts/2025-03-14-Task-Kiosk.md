@@ -126,6 +126,8 @@ entrySet은 처음 알긴 했네.
 대충 짐작은 했는데 몇 년 전의 의문을 확실하게 보니까 꽤나 후련하다.\
 아닌가? 당시에는 알았나? 시간 지나며 까먹은건가?
 
+ㅡ
+
 <br>
 
     public static String getList() throws JsonProcessingException {}
@@ -149,7 +151,7 @@ Java Compiler 옵션에서 23으로 변경.\
 artifactId는 공백을 포함하지 않음. - _은 가능.\
 
 작성한 프로젝트 이름인(Task2 - Kiosk)에 공백이 있어서, 이거 때문에 dependency 추가해도 빨갛게 떴네.\
-수정하고 IntelliJ 내 Maven 탭에서 reload. 정상화.\
+수정하고 IntelliJ 내 Maven 탭에서 reload. 정상화.
 
 ㅡ
 
