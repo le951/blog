@@ -33,7 +33,9 @@ Error : 오류
 예외는 대처할 수 있다.\
 언제 어떻게 발생할지는 알 수 없더라도, 발생을 예견할 수 있는 동시에 감지할 수 있다.
 
-숫자를 0으로 나누지 마시오. Null인 Pointer를 호출하지 마시오.
+숫자를 0으로 나누지 마시오.\
+Null인 Pointer로 호출하지 마시오.\
+해당 Class 정보는 잘못되었소.
 
 코드 상 수정해야 하는 부분까지는 알 수 없더라도\
 최소한 문제가 되는 이유를 이미 알고 정의하고 처리할 수 있다고 판단된 것이 예외다.
@@ -72,9 +74,12 @@ if (db == null) return 0;
 
 try db.read() catch (NullPointException e) { throw e; }
 
-둘 다 오류를 처리하는 방법이다.
+둘 다 오류를 처리하는 방법이다.\
+장단점이 있다. 대부분은 병행해서 사용된다.
 
-장단점이 있다. 현대에는 병행해서 사용된다.
+if는 오류가 발생할 상황을 미리 정의하여 회피한 것이고
+
+try-catch는 일단 실행 후 예외로 정의된 동작이 발생하면 throw Exception 되는 것을 감지한다.
 
 <br>
 
@@ -139,8 +144,6 @@ Exception을 Compile time에 점검한다.\
 
 즉, 해당 Exception은 try catch로 명확히 처리되지 않으면 컴파일 될 수 없다.
 
-throw 되어 쭉 타고 올라가 프로그램이 종료되는 일은 없도록 한다.
-
 이를 위해서는 선언부에 throws를 덧붙여야만 한다.
 
 붙이지 않고 throw new Exception() 또는 ClassNotFoundException() 등이 이뤄진다면 이 또한 컴파일 오류가 된다.
@@ -160,9 +163,11 @@ compile 시점에 처리되어야 할 오류를 강제한다는 발상 자체는
 
 다만 조금만 많이 써도 지저분해지고, 귀찮아지는 것은 맞는 것 같다.
 
-발생할 모든 Exception에 대해 if로 처리할 수 있다면 try-catch는 필요하지 않다.
-
+발생할 모든 Exception에 대해 if로 처리했다면 try-catch는 필요하지 않다.\
 애당초 throws나 try-catch도 모든 오류를 고려하는 것은 아니잖은가.
+
+차라리 try-catch를 강제하는 것이 아니라\
+그냥 throw 될 수 있는 Exception을 나열하는 스펙 시트 역할이었으면 더 나았을까?
 
 <br>
 <hr>
