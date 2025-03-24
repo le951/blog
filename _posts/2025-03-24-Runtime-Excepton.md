@@ -73,6 +73,7 @@ try db.read() catch (NullPointException e) { throw e; }
 
 장단점이 있다. 현대에는 병행해서 사용된다.
 
+<br>
 
 본래 먼저 사용되었던 것은 if를 통한 처리이다.
 
@@ -84,6 +85,7 @@ try db.read() catch (NullPointException e) { throw e; }
 
 분리하는 김에 사전에 정의도 해놓고. 언어 차원에서도 적극 활용하고. 여러가지를 거쳐 지금의 모습이다.
 
+<br>
 
 If와 try-catch가 오류를 처리하는 방식은 꽤나 다르다.
 
@@ -95,6 +97,7 @@ try-catch는 판별하지 않는다. 그저 흘려보내다, 오류가 발생하
 
 그 외에 오류의 처리를 호출한 위치에 넘겨버린다는 특징도 있다.
 
+<br>
 
 지금에선 이 둘을 병행하기도 한다.
 
@@ -128,7 +131,19 @@ Java만의 개성.
 Exception을 Compile time에 점검한다.\
 예외가 처리되지 않으면 컴파일을 중단한다.
 
-몰랐는데, 욕을 많이 들어먹는 방식이다.
+즉, 해당 Exception은 try catch로 명확히 처리되지 않으면 컴파일 될 수 없다.
+
+throw 되어 쭉 타고 올라가 프로그램이 종료되는 일은 없도록 한다.
+
+이를 위해서는 선언부에 throws를 덧붙여야만 한다.
+
+붙이지 않고 throw new Exception() 또는 ClassNotFoundException() 등이 이뤄진다면 이 또한 컴파일 오류가 된다.
+
+Unchekced Exception, 다른 말로(Java Class 명으로) RuntimeException은 해당되지 않는다.
+
+<br>
+
+몰랐는데 욕을 많이 들어먹는 방식이다.
 
 Spring 같은 프레임워크들이 이걸 최소화 하고자 RuntimeException으로 래핑하기도 하고
 
